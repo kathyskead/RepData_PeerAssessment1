@@ -1,7 +1,7 @@
 
 ## Reproducible Research Project 1
 
-1. Load data, R packages and process data
+#### 1. Load data, R packages and process data
 
 
 ```r
@@ -29,37 +29,7 @@ rm(list=ls())
 setwd("C:/Users/mskead/Google Drive/Data Science Course/Reproducible Research")
 activity <- read.csv("activity.csv")
 
-# explore data
-head(activity)
-```
-
-```
-##   steps       date interval
-## 1    NA 2012-10-01        0
-## 2    NA 2012-10-01        5
-## 3    NA 2012-10-01       10
-## 4    NA 2012-10-01       15
-## 5    NA 2012-10-01       20
-## 6    NA 2012-10-01       25
-```
-
-```r
-dim(activity)
-```
-
-```
-## [1] 17568     3
-```
-
-```r
-class(activity)
-```
-
-```
-## [1] "data.frame"
-```
-
-```r
+# get summary of data and see if there are any missing values
 summary(activity)
 ```
 
@@ -76,19 +46,9 @@ summary(activity)
 
 ```r
 # NA's = 2304 
-str(activity)
-```
 
-```
-## 'data.frame':	17568 obs. of  3 variables:
-##  $ steps   : int  NA NA NA NA NA NA NA NA NA NA ...
-##  $ date    : Factor w/ 61 levels "2012-10-01","2012-10-02",..: 1 1 1 1 1 1 1 1 1 1 ...
-##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...
-```
-
-```r
 # Trasform data so that it is in a usable format
-# change date format from factor to Date
+# change date format 
 activity$date <- as.Date(activity$date)
 
 # remove NA's keeping first dataset intact so that data can be added later

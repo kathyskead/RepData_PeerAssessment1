@@ -63,9 +63,8 @@ img {
 
 <div id="reproducible-research-project-1" class="section level2">
 <h2>Reproducible Research Project 1</h2>
-<ol style="list-style-type: decimal">
-<li>Load data, R packages and process data</li>
-</ol>
+<div id="load-data-r-packages-and-process-data" class="section level4">
+<h4>1. Load data, R packages and process data</h4>
 <pre class="r"><code># Load library packages used in the script
 library(plyr)
 library(mice)</code></pre>
@@ -81,20 +80,8 @@ rm(list=ls())
 setwd(&quot;C:/Users/mskead/Google Drive/Data Science Course/Reproducible Research&quot;)
 activity &lt;- read.csv(&quot;activity.csv&quot;)
 
-# explore data
-head(activity)</code></pre>
-<pre><code>##   steps       date interval
-## 1    NA 2012-10-01        0
-## 2    NA 2012-10-01        5
-## 3    NA 2012-10-01       10
-## 4    NA 2012-10-01       15
-## 5    NA 2012-10-01       20
-## 6    NA 2012-10-01       25</code></pre>
-<pre class="r"><code>dim(activity)</code></pre>
-<pre><code>## [1] 17568     3</code></pre>
-<pre class="r"><code>class(activity)</code></pre>
-<pre><code>## [1] &quot;data.frame&quot;</code></pre>
-<pre class="r"><code>summary(activity)</code></pre>
+# get summary of data and see if there are any missing values
+summary(activity)</code></pre>
 <pre><code>##      steps                date          interval     
 ##  Min.   :  0.00   2012-10-01:  288   Min.   :   0.0  
 ##  1st Qu.:  0.00   2012-10-02:  288   1st Qu.: 588.8  
@@ -104,17 +91,14 @@ head(activity)</code></pre>
 ##  Max.   :806.00   2012-10-06:  288   Max.   :2355.0  
 ##  NA's   :2304     (Other)   :15840</code></pre>
 <pre class="r"><code># NA's = 2304 
-str(activity)</code></pre>
-<pre><code>## 'data.frame':    17568 obs. of  3 variables:
-##  $ steps   : int  NA NA NA NA NA NA NA NA NA NA ...
-##  $ date    : Factor w/ 61 levels &quot;2012-10-01&quot;,&quot;2012-10-02&quot;,..: 1 1 1 1 1 1 1 1 1 1 ...
-##  $ interval: int  0 5 10 15 20 25 30 35 40 45 ...</code></pre>
-<pre class="r"><code># Trasform data so that it is in a usable format
-# change date format from factor to Date
+
+# Trasform data so that it is in a usable format
+# change date format 
 activity$date &lt;- as.Date(activity$date)
 
 # remove NA's keeping first dataset intact so that data can be added later
 activity1 &lt;- na.omit(activity)</code></pre>
+</div>
 <div id="find-the-mean-total-number-of-steps-taken-per-day." class="section level4">
 <h4>2. Find the mean total number of steps taken per day.</h4>
 <p>2.1 Calculate the total number of steps taken per day.</p>
